@@ -1,3 +1,60 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+body{  
+    background-image: url("../assets/img/fondo.jpg"); /* Ruta de la imagen */
+    background-repeat: no-repeat; /* No repetir la imagen */
+    background-size: cover; /* Que cubra toda la pantalla */
+    background-position: center; /* Centrar la imagen */
+    background-attachment: fixed; /* (Opcional) Mantener fija al hacer scroll */
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     
+}
+h1{
+    color: white;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    background: #EEAECA;
+    background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+.btn{
+    margin: 40px;
+    width: 15%;
+    font-size: 2rem;
+    background: #EEAECA;
+    background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+div{
+    margin-top:25px;
+    width: 75%;
+    display: none;
+    color: white;
+    border: 2px solid indigo;
+    background: #EEAECA;
+    background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    border-radius: 10px;
+    font-size: 1.5rem;
+    padding: 25px;
+}
+
+p::first-letter {
+  text-transform: uppercase;
 }
