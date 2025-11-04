@@ -38,6 +38,15 @@ const persona = {
  * @listens HTMLElement#mostrar
  */
 mostrar.addEventListener("click", () => {
+    gestionarLlamada()
+});
+
+
+/****************Funciones****************/
+/**
+ * Funcion para gestionaer la llamada
+ */
+const gestionarLlamada = () => {
     mostrarContainer.style.display = "none"
     setTimeout(() => {
         mostrarUsuario()
@@ -48,10 +57,7 @@ mostrar.addEventListener("click", () => {
                 pintarError(error)
             })
     }, 2000)
-});
-
-
-/****************Funciones****************/
+}
 /**
  * Funcion asincrona que devuelve una promesa
  * @returns {Promise} 
@@ -73,32 +79,6 @@ const mostrarUsuario = () =>{
 /*****************************************************************
                             ASINCRONO
 ******************************************************************/
-
-// /****************Eventos****************/
-// /**
-//  * Maneja el evento de clic sobre el elemento con id = "mostrar" que en este caso es un boton.
-//  * 
-//  * Al hacer click:
-//  * Espera 2 segundos antes de continuar.
-//  * Llama a la funcion mostrarUsuario().
-//  *  - Si la promesa se resuelve correctamente, ejecuta pintarObjeto() para mostrar los datos.
-//  *  - Si ocurre un error, lo captura y muestra mediante pintarError(error).
-//  * 
-//  * @event click
-//  * @listens HTMLElement#mostrar
-//  */
-// mostrar.addEventListener("click", () => {
-//     mostrarContainer.style.display = "none"
-//     setTimeout(() => {
-//         mostrarUsuario()
-//             .then(()=>{
-//                 pintarObjeto()
-//             })
-//             .catch((error)=>{
-//                 pintarError(error)
-//             })
-//     }, 2000)
-// });
 
 
 // /****************Funciones****************/
