@@ -43,36 +43,36 @@ mostrar.addEventListener("click", () => {
 
 
 /****************Funciones****************/
-/**
- * Funcion para gestionaer la llamada
- */
-const gestionarLlamada = () => {
-    mostrarContainer.style.display = "none"
-    setTimeout(() => {
-        mostrarUsuario()
-            .then(()=>{
-                pintarObjeto()
-            })
-            .catch((error)=>{
-                pintarError(error)
-            })
-    }, 2000)
-}
-/**
- * Funcion asincrona que devuelve una promesa
- * @returns {Promise} 
- */
-const mostrarUsuario = () =>{
-    const promesa = new Promise((resolve,reject)=>{
-        if (chivato){
-            resolve("Todo bien")
-        }
-        else{
-            reject("Usuario no encontrado")
-        }
-    })
-    return promesa;
-}
+// /**
+//  * Funcion para gestionaer la llamada
+//  */
+// const gestionarLlamada = () => {
+//     mostrarContainer.style.display = "none"
+//     setTimeout(() => {
+//         mostrarUsuario()
+//             .then(()=>{
+//                 pintarObjeto()
+//             })
+//             .catch((error)=>{
+//                 pintarError(error)
+//             })
+//     }, 2000)
+// }
+// /**
+//  * Funcion asincrona que devuelve una promesa
+//  * @returns {Promise} 
+//  */
+// const mostrarUsuario = () =>{
+//     const promesa = new Promise((resolve,reject)=>{
+//         if (chivato){
+//             resolve("Usuario cargado correctamente")
+//         }
+//         else{
+//             reject("Usuario no encontrado")
+//         }
+//     })
+//     return promesa;
+// }
 
 
 
@@ -82,23 +82,32 @@ const mostrarUsuario = () =>{
 
 
 // /****************Funciones****************/
-// /**
-//  * Funcion asincrona que devuelve una promesa
-//  * @returns {Promise} 
-//  */
-// const mostrarUsuario = async () =>{
-    
-//     try{
-//         if(chivato){
-//             return "Todo bien"
-//         }else{
-//             throw "Usuario no encontrado"
-//         }
-//     }
-//     catch(error){
-//         throw error
-//     }
-// }
+/**
+ * Funcion para gestionaer la llamada
+ */
+const gestionarLlamada = async () => {
+    mostrarContainer.style.display = "none"
+    setTimeout(async () => {
+        try {
+        await mostrarUsuario(); // espera la promesa
+        pintarObjeto();                         // si todo va bien
+        } catch (error) {
+        pintarError(error);                     // si falla
+        }
+    }, 2000);
+};
+
+/**
+ * Funcion asincrona que devuelve una promesa
+ * @returns {Promise} 
+ */
+const mostrarUsuario = async () =>{
+    if(chivato){
+        return "Usuario encontrado correctamente"
+    }else{
+        throw "Usuario no encontrado"
+    }
+}
 
 /**
  * Crea un parrafo (objeto del dom) con el contenido del parametro mensaje como textContent
